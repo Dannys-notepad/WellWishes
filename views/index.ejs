@@ -87,7 +87,7 @@
       <p>Thank you for your kind heart</p>
     </header>
     <main>
-      <button><a href="http://localhost:5000/sendwish">Send a Wish</a></button>
+      <button><a href="https://wellwishes.onrender.com/sendwish">Send a Wish</a></button>
       <section>
         
       </section>
@@ -98,7 +98,7 @@
         const display = async () => {
         try{
           //alert('Hey')
-          let response = await fetch('http://localhost:5000/data')
+          let response = await fetch('https://wellwishes.onrender.com/data')
           let data = await response.json()
           if(data.db.length !== 0){
             data.db.forEach((d) => {
