@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well Wishes</title>
+    <style>
+      *{
+        box-sizing: border-box;
+        font-family: Sans-Serif, Monospace;
+      }
+      body{
+        background-color: #ecf6fa8c;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      header{
+        color: #1465c88c;
+        margin-top: 12px;
+        margin-bottom: 28px;
+      }
+      header h1{
+        margin-bottom: 3px;
+      }
+      header p{
+        margin: 0;
+        font-weight: 500;
+      }
+      
+      input[type="text"]{
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #1465c88c;
+        color: #1465c88c;
+        font-size: 18px;
+        font-weight: 500px;
+        border-radius: 5px;
+      }
+      
+      textarea{
+        width: 100%;
+        height: 80px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #1465c88c;
+        color: #1465c88c;
+        font-size: 18px;
+        font-weight: 500px;
+        border-radius: 5px;
+      }
+      
+      button[type="submit"] {
+        width: 100%;
+        height: 40px;
+        background-color: #1465c88c;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Well Wishes</h1>
+      <p>What is your wish?</p>
+    </header>
+    <main>
+      <form action="http://localhost:5000/sendwish" method="post" accept-charset="utf-8">
+        <label>
+          <input type="text" name="name" placeholder="Enter your name" required>
+        </label>
+        <label>
+          <textarea placeholder="Enter your wish" name="wish" rows="8" cols="40"></textarea>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </body>
+</html>

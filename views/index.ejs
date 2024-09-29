@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well Wishes</title>
+    <style>
+      *{
+        box-sizing: border-box;
+        font-family: Sans-Serif, Monospace;
+      }
+      body{
+        background-color: #ecf6fa8c;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      header{
+        color: #1465c88c;
+        margin-top: 12px;
+        margin-bottom: 28px;
+      }
+      header h1{
+        margin-bottom: 3px;
+      }
+      header p{
+        margin: 0;
+        font-weight: 500px;
+      }
+      a{
+        text-decoration: none;
+        font-weight: bold;
+        color: #fff;
+      }
+      button{
+        cursor: pointer;
+        background-color: #1465c88c;
+        border: none;
+        border-radius: 5px;
+        width: 155px;
+        height: 35px;
+        font-size: 17px;
+        margin-bottom: 12px;
+      }
+      section{
+        background-color: #9ec1ec8c;
+        border-radius: 5px;
+        margin-top: 5px;
+        padding: 5px;
+      }
+      .card{
+        width: 100%;
+        height: 10%;
+        color: #1465c88c;
+        padding: 5px;
+        padding-right: 10px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        background-color: #fff;
+        
+      }
+      .card h3{
+        padding-left: 8px;
+        padding-bottom: 0;
+      }
+      .card p{
+        padding-left: 8px;
+        padding-bottom: 0;
+        text-align: justify;
+      }
+      .empy{
+        width: 100%;
+        height: 30px;
+        color: #1465c88c;
+        background-color: #fff;
+        font-weight: bold;
+        font-size: 19px;
+        text-align: center;
+      }
+      .empy p{
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Well Wishes</h1>
+      <p>Thank you for your kind heart</p>
+    </header>
+    <main>
+      <button><a href="http://localhost:5000/sendwish">Send a Wish</a></button>
+      <section>
+        
+      </section>
+    </main>
+    <script type="text/javascript" charset="utf-8">
+          const section = document.querySelector('section')
+      let card = ``
+        const display = async () => {
+        try{
+          //alert('Hey')
+          let response = await fetch('http://localhost:5000/data')
+          let data = await response.json()
+          if(data.db.length !== 0){
+            data.db.forEach((d) => {
+              card += `
+              <div class="card">
+                <h3>${d.name}</h3>
+                <p>${d.wish}</p>
+              </div>
+              `
+            })
+            section.innerHTML += card
+          }else{
+            section.innerHTML = `
+              <div class="empy">
+                <p>No well wishes yet</p>
+              </div>
+            `
+          }
+        } catch(e){
+          alert(e)
+        }
+        }
+        display()
+    </script>
+  </body>
+</html>

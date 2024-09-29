@@ -1,0 +1,20 @@
+{
+  "name": "wellwishes",
+  "version": "1.0.0",
+  "main": "app",
+  "scripts": {
+    "start": "node app",
+    "dev": "node --watch app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "mailgen": "^2.0.28",
+    "nodemailer": "^6.9.15"
+  }
+}
